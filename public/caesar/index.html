@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Caesar Cipher | Cryptography Workshop</title>
+        <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+        <link href="https://bootswatch.com/slate/bootstrap.min.css" rel="stylesheet" />
+        <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" />
+        <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Playfair+Display" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Ubuntu+Mono" rel="stylesheet">
+        <link href="../style.css" rel="stylesheet" />
+        <link rel="icon" href="../images/favicon.ico" sizes="64x64" type="image/vnd.microsoft.icon">
+        <script src="./caesar.js"></script>
+    </head>
+    <body>
+        <!-- HEADER -->
+        <div class="jumbotron">
+            <div class="container">
+                <div class="row">
+                    <div class="col-xs-3">
+                        <a href="http://cs.okstate.edu/acm/"><img src="../images/acm.png" class="img-responsive header-image" width="75%"/></a>
+                    </div>
+                    <div class="col-xs-6 header-titles">
+                        <h1 class="title">Caesar Cipher</h1>
+                        <h2 class="subtitle">Cryptography Workshop</h2>
+                    </div>
+                    <div class="col-xs-3">
+                        <a href="https://www.facebook.com/osumathclub/"><img src="../images/math club.png" class="img-responsive header-image" width="75%"/></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- INTERACTIVE COMPONENT -->
+        <div class="container" id="interactive">
+            <div id="customizer" class="form-group row">
+                <div class="col-sm-1"><label><h2 class="field-label">Key: </h2></label></div>
+                <div class="col-sm-1"></div>
+                <div class="col-sm-10">
+                    <input class="form-control dark-control" id="key" type="number" value="0" onchange="populateAlphaOffset()"/>
+                    <button id="key-up" class="btn btn-default col-sm-6" onclick="keyUp()">∧</button>
+                    <button class="btn btn-default col-sm-6" onclick="keyDown()">∨</button>
+                </div>
+            </div>
+
+            <div id="alphabet-offset" class="form-group row">
+                <div class="col-sm-1"><label><h2 class="field-label">Offset: </h2></label></div>
+                <div class="col-sm-1">
+
+                </div>
+                <div class="col-sm-10">
+                    <table style="width: 100%;">
+                        <tr id="alphastandard"></tr>
+                        <tr id="alphaoffset"></tr>
+                    </table>
+                </div>
+            </div>
+
+            <div id="activity">
+                <div class="form-group row">
+                    <div class="col-sm-2"><label><h2 class="field-label">Plaintext: </h2></label></div>
+                    <div class="col-sm-10"><textarea class="form-control dark-control" id="input"></textarea></div>
+                </div>
+                <div class="form-group row">
+                    <div class="col-sm-2"><label><h2 class="field-label">Cipher: </h2></label></div>
+                    <div class="col-sm-10"><textarea class="form-control dark-control" id="output"></textarea></div>
+                </div>
+                <div class="form-group row">
+                    <button class="btn btn-success col-sm-6" onclick="demoEncrypt();"><i class="fa fa-lock" aria-hidden="true"></i> Encrypt</button>
+                    <button class="btn btn-info col-sm-6" onclick="decrypt();"><i class="fa fa-unlock-alt" aria-hidden="true"></i> Decrypt</button>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>

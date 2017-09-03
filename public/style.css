@@ -1,0 +1,76 @@
+* {
+    font-family: "Montserrat", serif;
+}
+
+.title {
+    font-family: 'Montserrat', sans-serif;
+    text-transform: uppercase;
+    font-weight: 700;
+    text-align: center;
+}
+
+.subtitle {
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+    text-align: center;
+    opacity: 0.5;
+}
+
+.header-image {
+    display: block;
+    margin: auto;
+}
+
+.header-titles {
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.form-group {
+    display: inline;
+}
+
+.field-label {
+    margin: auto;
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+    color: #ff7300;
+}
+
+.dark-control {
+    background-color: rgba(0, 0, 0, 0.3);
+    color: rgba(255, 255, 255, 0.7);
+    margin: auto;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+.btn {
+    font-weight: bold;
+}
+
+.cell {
+    font-family: 'Ubuntu Mono', serif;
+    font-style: italic;
+    font-size: 2em;
+}
+
+.cell-has-bottom-border {
+    border-bottom: 1px solid lightgray;
+}
+
+.cell-has-right-border {
+    border-right: 1px solid lightgray;
+}
+
+td {
+    text-align: center;
+}
+
+.demo-encrypt-current {
+    color: #62c462;
+}
+
+.demo-decrypt-current {
+    color: #5bc0de;
+}

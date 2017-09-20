@@ -26,6 +26,23 @@
     vertical-align: middle;
 }
 
+.interactive-link {
+    border-radius: 20px;
+    box-shadow: 0px 0px 10px #000;
+    padding: 0px;
+}
+
+.interactive-link img {
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+    width: 100%;
+    height: auto;
+    padding: 0px;
+    margin: 0;
+    padding-bottom: 5px;
+    box-shadow: 0px 0px 10px #000;
+}
+
 .form-group {
     display: inline;
 }

@@ -5,15 +5,7 @@
 
 ***
 #### Introduction
- - Information
-  - Paraphrase Queen Semiramis tale from Friedman lecture I? https://www.nsa.gov/news-features/declassified-documents/friedman-documents/assets/files/lectures-speeches/FOLDER_172/41758929079807.pdf
-   - I should worry about the introduction later
    
-##### Terminology
- - Possibly should be under Introduction
- - **Plaintext** is a message before it has been **encrypted**. **Ciphertext** is the result of encryption on plaintext, and is the enciphered message
-  - 
-
 #### Caesar Cipher
  - One of the earliest and simplest ciphers
  - Used by (you guessed it) Caesar himself, who is claimed to have used a shift of 3

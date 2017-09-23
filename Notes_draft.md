@@ -18,9 +18,9 @@
  - One of the earliest and simplest ciphers
  - Used by (you guessed it) Caesar himself, who is claimed to have used a shift of 3
  
- |a|b|c|d|e|f|g|h|i|j|k|l|m|n|o|p|q|r|s|t|u|v|w|x|y|z|
- |-|-|-|-|-|-|-|-|-|-|-|-|-|-|-|-|-|-|-|-|-|-|-|-|-|-|
- |d|e|f|g|h|i|j|k|l|m|n|o|p|q|r|s|t|u|v|w|x|y|z|a|b|c|
+ |a|b|c|d|e|f|...|u|v|w|x|y|z|
+ |-|-|-|-|-|-|-|-|-|-|-|-|-|
+ |d|e|f|g|h|i|...|x|y|z|a|b|c|
  
   ##### Let's define some terminology:
   - We don't want to actually deal with letters, words, etc. Modern cryptography deals almost soley with numbers. We use an **encoding** function to transform letters (or words) into numbers, and vice versa.
@@ -148,7 +148,8 @@
   |Send g^c to the other party|g^b mod p = 24| g^a mod p = 47, g^b mod p = 24| g^a mod p = 47|
   |Calculate g^(ab) mod p|(g^b)^a mod p = (47)^(28) mod 67 = 36 |???| (g^a)^b mod p = (24)^42 mod 67 = 62|
   
+  Notice that if Eve finds either "a" or "b", she knows the secret key.
    
 #### Discrete Log Problem
-
+ - The problem of finding "a" from "g^a mod p" is known as the **Discrete Log Problem**. As far as we know, this is a hard problem.
 #### Post-Quantum Cryptography

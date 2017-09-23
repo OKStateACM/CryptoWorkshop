@@ -152,4 +152,10 @@
    
 #### Discrete Log Problem
  - The problem of finding "a" from "g^a mod p" is known as the **Discrete Log Problem**. As far as we know, this is a hard problem.
+ 
 #### Post-Quantum Cryptography
+ - But, the Discrete Log problem isn't hard on a Quantum Computer!
+   - Breaks using "Shor's Algorithm"
+
+### Acknowledgements
+- Thanks to Dr. Fili of the OSU Mathematics department for providing input and references for content

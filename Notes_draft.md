@@ -90,13 +90,13 @@
   
  #### Algorithm (example):
   Let p=67, g=7, a = 28 = 11100 (base 2). We can "repeatedly square" g to get
-   - g<sup>2</sup> = (g)(g)     = 7 * 7 = 49 mod 67
-   - g<sup>4</sup> = (g<sup>2</sup>)(g<sup>2</sup>) = 49 * 49 = 56 mod 67
-   - g<sup>8</sup> = (g<sup>4</sup>)(g<sup>4</sup>) = 56 * 56 = 54 mod 67
-   - g<sup>16</sup> = (g<sup>8</sup>)(g<sup>8</sup>) = 54 * 54 = 35 mod 67
+   - g<sup>2</sup> = (g)(g)     = 7 * 7 = 49 ≡ 49 mod 67
+   - g<sup>4</sup> = (g<sup>2</sup>)(g<sup>2</sup>) = 49 * 49 = 2401 ≡ 56 mod 67
+   - g<sup>8</sup> = (g<sup>4</sup>)(g<sup>4</sup>) = 56 * 56 = 3136 ≡ 54 mod 67
+   - g<sup>16</sup> = (g<sup>8</sup>)(g<sup>8</sup>) = 54 * 54 = 2916 ≡ 35 mod 67
    
   Since 28 = 16 + 8 + 4, we see
-   - g<sup>28</sup> = (g<sup>16</sup>)(g<sup>8</sup>)(g<sup>4</sup>) = 35 * 54 * 56 = 47 mod 67
+   - g<sup>28</sup> = (g<sup>16</sup>)(g<sup>8</sup>)(g<sup>4</sup>) = 35 * 54 * 56 = 105840 ≡ 47 mod 67
   
   Notice that this algorithm only takes log<sub>2</sub>(n) squarings. So evey very large "a" will perform relatively quickly
   

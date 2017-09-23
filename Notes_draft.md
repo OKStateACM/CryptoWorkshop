@@ -82,7 +82,7 @@
     
 #### One small problem...
  - Notice that both the Caesar Cipher and the Enigma machine rely on an assumption
-  - What is it?
+  - What is it? <spoiler>Both the messenger and the recipient share a secret key or a configuration unknown to any would-be eavesdroppers.</spoiler>
   
  - We need a way of distributing keys between two parties through an untrusted medium
 

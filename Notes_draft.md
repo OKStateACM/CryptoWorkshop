@@ -74,7 +74,7 @@
     
 #### One small problem...
  - Notice that both the Caesar Cipher and the Enigma machine rely on an assumption
-  - What is it? <spoiler>Both the messenger and the recipient share a secret key or a configuration unknown to any would-be eavesdroppers.</spoiler>
+  - What is it?
   
  - We need a way of distributing keys between two parties through an untrusted medium
 
@@ -82,6 +82,7 @@
   - First published by Whitfield Diffie and Martin Hellman in 1976
     - But actually conveived before then by researchers at GCHQ, Great Britain's secret intelligence agency
   - Allows parties to decide on a secret key even in the presence of evesdroppers.
+  - Not actually an encryption scheme, but a key generation scheme to be used in conjunction with some other form of encryption.
  #### The Math:
   - Let's go back to the idea of modular arithmetic
   - Choose a prime "p" and a number "g"

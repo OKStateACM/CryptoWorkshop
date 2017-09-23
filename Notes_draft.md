@@ -32,7 +32,7 @@
   
   ##### Modular Arithmetic (a digression)
    - Also known as "clock" arithmetic
-   - Intuitively, "x mod n" is the remainder of "x / r" (x divided by r).
+   - Intuitively, "x mod n" is the remainder of "x ÷ n" (x divided by n).
    - Technically, "x = y mod n" if there exists an integer "k" with "x + kn =  y"
   ##### Example
    -  3 mod 5 = 3 (k = 0)

@@ -93,18 +93,18 @@
  #### The Math:
   - Let's go back to the idea of modular arithmetic
   - Choose a prime "p" and a number "g"
-  It turns out that we can computer "g^a mod p" quickly even for very large "a"
+  It turns out that we can computer "g<sup>a</sup> mod p" quickly even for very large "a"
   
  #### Algorithm (example):
   Let p=67, g=7, a = 28 = 11100 (base 2). We can "repeatedly square" g to get
-   - g^2 = (g)(g)     = 7 * 7 = 49 mod 67
-   - g^4 = (g^2)(g^2) = 49 * 49 = 56 mod 67
-   - g^8 = (g^4)(g^4) = 56 * 56 = 54 mod 67
-   - g^16 = (g^8)(g^8) = 14 * 14 = 35 mod 67
+   - g<sup>2</sup> = (g)(g)     = 7 * 7 = 49 mod 67
+   - g<sup>4</sup> = (g<sup>2</sup>)(g<sup>2</sup>) = 49 * 49 = 56 mod 67
+   - g<sup>8</sup> = (g<sup>4</sup>)(g<sup>4</sup>) = 56 * 56 = 54 mod 67
+   - g<sup>16</sup> = (g<sup>8</sup>)(g<sup>8</sup>) = 14 * 14 = 35 mod 67
   Since 28 = 16 + 8 + 4, we see
-   - g^28 = (g^16)(g^8)(g^4) = 35 * 54 * 56 = 47 mod 67
+   - g<sup>28</sup> = (g<sup>16</sup>)(g<sup>8</sup>)(g<sup>4</sup>) = 35 * 54 * 56 = 47 mod 67
   
-  Notice that this algorithm only takes log_2(n) squarings. So evey very large "a" will perform relatively quickly
+  Notice that this algorithm only takes log<sub>2</sub>(n) squarings. So evey very large "a" will perform relatively quickly
   
   #### Back to Diffie-Hellman
   So what do we do with this information?
@@ -120,22 +120,22 @@
    - Alice and Bob (openly) communicate a prime "p" and a number "g"
    
   Step 2:
-   - Alice chooses a secret number "a", calculates "g^a mod p", and sends that information to Bob
-   - Bob chooses a secret number "b", calculates "g^b mod p", and sends that information to Alice
+   - Alice chooses a secret number "a", calculates "g<sup>a</sup> mod p", and sends that information to Bob
+   - Bob chooses a secret number "b", calculates "g<sup>b</sup> mod p", and sends that information to Alice
    
   Step 3:
-   - Alice calculates (g^b mod p)^a mod p = g^(ab) mod p
-   - Bob calculates (g^a mod p)^b mod p = g^(ab) mod p
+   - Alice calculates (g<sup>b</sup> mod p)<sup>a</sup> mod p = g<sup>ab</sup> mod p
+   - Bob calculates (g<sup>a</sup> mod p)<sup>b</sup> mod p = g<sup>ab</sup> mod p
    
-  The secret key is g^(ab) mod p
+  The secret key is g<sup>ab</sup> mod p
   
   ||Alice|Eve|Bob|
   |---|:---:|:---:|:---:|
   |Decide on g,p|g,p|g,p|g,p|
   |Secretly choose a number (c)|a  |   | b |
-  |Calculate g^c mod p|g^a mod p| | g^b mod p|
-  |Send g^c to the other party|g^b mod p| g^a mod p, g^b mod p| g^a mod p|
-  |Feel secure in your secrecy ;)|(g^b)^a mod p |???| (g^a)^b mod p|
+  |Calculate g<sup>c</sup> mod p|g<sup>a</sup> mod p| | g<sup>b</sup> mod p|
+  |Send g<sup>c</sup> to the other party|g<sup>b</sup> mod p| g<sup>a</sup> mod p, g<sup>b</sup> mod p| g<sup>a</sup> mod p|
+  |Feel secure in your secrecy ;)|(g<sup>b</sup>)<sup>a</sup> mod p |???| (g<sup>a</sup>)<sup>b</sup> mod p|
   
   ##### Going back to our example
   p = 67, g = 7 (NUMBERS ARE CURRENTLY WRONG, NEED TO WORK ON THAT)
@@ -144,14 +144,14 @@
   |---|:---:|:---:|:---:|
   |Decide on g,p|g=7,p=67|g=7,p=67|g=7,p=67|
   |Secretly choose a number (c)|a=28|   | b=42 |
-  |Calculate g^c mod p|7^28 mod 67 = 47| | 7^42 mod 67 = 24|
-  |Send g^c to the other party|g^b mod p = 24| g^a mod p = 47, g^b mod p = 24| g^a mod p = 47|
-  |Calculate g^(ab) mod p|(g^b)^a mod p = (47)^(28) mod 67 = 36 |???| (g^a)^b mod p = (24)^42 mod 67 = 62|
+  |Calculate g<sup>c</sup> mod p|7<sup>28</sup> mod 67 = 47| | 7<sup>42</sup> mod 67 = 24|
+  |Send g<sup>c</sup> to the other party|g<sup>b</sup> mod p = 24| g<sup>a</sup> mod p = 47, g<sup>b</sup> mod p = 24| g<sup>a</sup> mod p = 47|
+  |Calculate g<sup>ab</sup> mod p|(g<sup>b</sup>)<sup>a</sup> mod p = (47)<sup>28</sup> mod 67 = 36 |???| (g<sup>a</sup>)<sup>b</sup> mod p = (24)^42 mod 67 = 62|
   
   Notice that if Eve finds either "a" or "b", she knows the secret key.
    
 #### Discrete Log Problem
- - The problem of finding "a" from "g^a mod p" is known as the **Discrete Log Problem**. As far as we know, this is a hard problem.
+ - The problem of finding "a" from "g<sup>a</sup> mod p" is known as the **Discrete Log Problem**. As far as we know, this is a hard problem.
  
 #### Post-Quantum Cryptography
  - But, the Discrete Log problem isn't hard on a Quantum Computer!

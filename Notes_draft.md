@@ -1,7 +1,7 @@
 ### Crypto Meeting
 
 #### ACM Meeting notes - September 28, 2017
-#### Performed in collaboration with the Pi Mu Epsilon (math club) local chatper
+#### Performed in collaboration with the Pi Mu Epsilon (math club) local chapter
 
 ***
 #### Introduction
@@ -63,10 +63,10 @@
        - it reflects the natural frequency of letters in a language
        - "e" is the most common letter in the English Alphabet
   - Notice that if the key is "13", we don't actually need a decryption function
-   - Has a special name: Rot13
-   - "f(x,13)=x+13"
-   - "f(x+13, 13) = x+26 = x mod 26"
-   - (Supposedly) used in Forums to hide spoilers
+    - Has a special name: Rot13
+    - "f(x,13)=x+13"
+    - "f(x+13, 13) = x+26 = x mod 26"
+    - (Supposedly) used in Forums to hide spoilers
 
 #### Notes on the Enigma Machine:
  - http://wiki.franklinheath.co.uk/index.php/Enigma/Paper_Enigma
@@ -74,14 +74,81 @@
  - Need Picture
 
 #### Enigma Machine
-- Used in WWII by the Germans (Who's seem the "Imitation Game"?)
-- Not the first use of machinery (for some definition of machinery) being used to encrypt/decrypt messages
-   - But arguably the first one we care about.
+ - Invented at the end of WWI
+ - But mainly you it talked about in context with WWII
+ - Multiple Variations
    ##### So what is the Enigma Machine?
     - Consists of 3 rotors
     
-#### Diffie-Hellman
- - Notice that both the Caesar Cipher and the Enigma machine rely make an assumption (what is it?)
+#### One small problem...
+ - Notice that both the Caesar Cipher and the Enigma machine rely on an assumption
+  - What is it?
+  
+ - We need a way of distributing keys between two parties through an untrusted medium
+
+ #### Diffie-Hellman Key Exchange
+  - First published by Whitfield Diffie and Martin Hellman in 1976
+    - But actually conveived before then by researchers at GCHQ, Great Britain's secret intelligence agency
+  - Allows parties to decide on a secret key even in the presence of evesdroppers.
+ #### The Math:
+  - Let's go back to the idea of modular arithmetic
+  - Choose a prime "p" and a number "g"
+  It turns out that we can computer "g^a mod p" quickly even for very large "a"
+  
+ #### Algorithm (example):
+  Let p=67, g=7, a = 28 = 11100 (base 2). We can "repeatedly square" g to get
+   - g^2 = (g)(g)     = 7 * 7 = 49 mod 67
+   - g^4 = (g^2)(g^2) = 49 * 49 = 56 mod 67
+   - g^8 = (g^4)(g^4) = 56 * 56 = 54 mod 67
+   - g^16 = (g^8)(g^8) = 14 * 14 = 35 mod 67
+  Since 28 = 16 + 8 + 4, we see
+   - g^28 = (g^16)(g^8)(g^4) = 35 * 54 * 56 = 47 mod 67
+  
+  Notice that this algorithm only takes log_2(n) squarings. So evey very large "a" will perform relatively quickly
+  
+  #### Back to Diffie-Hellman
+  So what do we do with this information?
+   - Let us suppose we have 3 parties.
+     - Alice, who wants to talk to Bob without being overheard
+     - Bob, who wants to talk to Alice without being overheard
+     - Eve, who wants to eavesdrop on Alice and Bob's conversation
+   - Furthermore, Alice and Bob have no prior information about each other
+     - That is, they haven't decided on a secret key yet
+  How are Alice and Bob going to decide on a secret key?
+  
+  Step 1:
+   - Alice and Bob (openly) communicate a prime "p" and a number "g"
+   
+  Step 2:
+   - Alice chooses a secret number "a", calculates "g^a mod p", and sends that information to Bob
+   - Bob chooses a secret number "b", calculates "g^b mod p", and sends that information to Alice
+   
+  Step 3:
+   - Alice calculates (g^b mod p)^a mod p = g^(ab) mod p
+   - Bob calculates (g^a mod p)^b mod p = g^(ab) mod p
+   
+  The secret key is g^(ab) mod p
+  
+  ||Alice|Eve|Bob|
+  |---|:---:|:---:|:---:|
+  |Decide on g,p|g,p|g,p|g,p|
+  |Secretly choose a number (c)|a  |   | b |
+  |Calculate g^c mod p|g^a mod p| | g^b mod p|
+  |Send g^c to the other party|g^b mod p| g^a mod p, g^b mod p| g^a mod p|
+  |Feel secure in your secrecy ;)|(g^b)^a mod p |???| (g^a)^b mod p|
+  
+  ##### Going back to our example
+  p = 67, g = 7
+  
+  ||Alice|Eve|Bob|
+  |---|:---:|:---:|:---:|
+  |Decide on g,p|g=7,p=67|g=7,p=67|g=7,p=67|
+  |Secretly choose a number (c)|a=28|   | b=42 |
+  |Calculate g^c mod p|7^28 mod 67 = 47| | 7^42 mod 67 = 24|
+  |Send g^c to the other party|g^b mod p = 24| g^a mod p = 47, g^b mod p = 24| g^a mod p = 47|
+  |Calculate g^(ab) mod p|(g^b)^a mod p = (47)^(28) mod 67 = 36 |???| (g^a)^b mod p = (24)^42 mod 67 = 62|
+  
+   
 #### Discrete Log Problem
 
 #### Post-Quantum Cryptography

@@ -101,6 +101,7 @@
    - g<sup>4</sup> = (g<sup>2</sup>)(g<sup>2</sup>) = 49 * 49 = 56 mod 67
    - g<sup>8</sup> = (g<sup>4</sup>)(g<sup>4</sup>) = 56 * 56 = 54 mod 67
    - g<sup>16</sup> = (g<sup>8</sup>)(g<sup>8</sup>) = 54 * 54 = 35 mod 67
+   
   Since 28 = 16 + 8 + 4, we see
    - g<sup>28</sup> = (g<sup>16</sup>)(g<sup>8</sup>)(g<sup>4</sup>) = 35 * 54 * 56 = 47 mod 67
   

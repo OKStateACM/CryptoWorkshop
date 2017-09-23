@@ -138,7 +138,7 @@
   |Feel secure in your secrecy ;)|(g^b)^a mod p |???| (g^a)^b mod p|
   
   ##### Going back to our example
-  p = 67, g = 7
+  p = 67, g = 7 (NUMBERS ARE CURRENTLY WRONG, NEED TO WORK ON THAT)
   
   ||Alice|Eve|Bob|
   |---|:---:|:---:|:---:|

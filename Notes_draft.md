@@ -82,7 +82,6 @@
 ![Enigma Machine](https://upload.wikimedia.org/wikipedia/commons/b/bd/Enigma_%28crittografia%29_-_Museo_scienza_e_tecnologia_Milano.jpg)
    
    #### Facts
-   
    - Has a total of 150,738,274,937,250 (151 trillion) different ways pairs of letters could be interchanged
    - The Polish and British cryptographers and mathematicians spearheaded the attack on the Enigma Machine
    
@@ -92,16 +91,20 @@
  - Poor security or thought in how the Enigma was used
   - **Cribs** are common phrases that you might see expect to see in the plaintext
      - For example, you might expect the first word of a letter to be "Hello"
+     - Or, every message ended in "Heill Hitler"
   - Common rotor settings such as "AAA" or "BBB"
   - Retransmitting a message (or a nearly identital message) using a different cipher (or different key)
     
-  ![Courtesy of xkcd](https://imgs.xkcd.com/comics/security.png)
     
-#### One small problem...
+#### Real-world crypto (courtesy of xkcd)
+
+  ![](https://imgs.xkcd.com/comics/security.png)
+    
+    
+
+#### Problems with Caesar Cipher and the Enigma Machine
  - Notice that both the Caesar Cipher and the Enigma machine rely on an assumption
-  - What is it?
-  
- - We need a way of distributing keys between two parties through an untrusted medium
+ - **They both assume that the parties have communicated some secret**
 
  #### Diffie-Hellman Key Exchange
   - First published by Whitfield Diffie and Martin Hellman in 1976

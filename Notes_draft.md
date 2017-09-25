@@ -67,10 +67,25 @@
 
 #### Enigma Machine
  - Invented at the end of WWI
- - But mainly you it talked about in context with WWII
+ - But mainly you see it talked about in context with WWII
  - Multiple Variations
-   ##### So what is the Enigma Machine?
-    - Consists of 3 rotors
+ 
+   #### So what is the Enigma Machine?
+   PICTURE HERE 
+   
+   #### Simulation
+   
+   - Has a total of 150,738,274,937,250 (151 trillion) different ways pairs of letters could be interchanged
+   - The Polish and British cryptographers and mathematicians spearheaded the attack on the Enigma Machine
+   
+#### Breaking the Enigma
+ - Notice that a letter can't encode to itself
+ - Notice that if a letter X maps to Y, then Y also maps to X
+ - Poor security or thought in how the Enigma was used
+  - **Cribs** are common phrases that you might see expect to see in the plaintext
+     - For example, you might expect the first word of a letter to be "Hello"
+  - Common rotor settings such as "AAA" or "BBB"
+  - Retransmitting a message (or a nearly identital message) using a different cipher (or different key)
     
 #### One small problem...
  - Notice that both the Caesar Cipher and the Enigma machine rely on an assumption

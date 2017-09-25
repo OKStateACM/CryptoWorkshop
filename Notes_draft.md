@@ -42,23 +42,32 @@
   
   ##### Back to the Caesar Cipher
   - Let's work through some examples:
-  - Encrypt "CryptoWorkshop" using a key of 3
-  - Decrypt "WLSJNI CM WIIF" using a key of 20 (or a key of -6)
+  - Encrypt `CRYPTOWORKSHOP` using a key of 3
+  - Decrypt `WLSJNI CM WIIF` using a key of 20 (or a key of -6)
   
-  ##### Parting Thoughts
+  ##### Reflections on Caesar Cipher
+  - Notice that if the key is 13, we don't actually need a decryption function -- it would be the same as the encryption function
+    - Has a special name: [ROT13](https://en.wikipedia.org/wiki/ROT13)
+    - *f(x, 13)* = *x* + 13
+    - *f(x+13, 13)* = *x* + 26 = *x* mod 26
+    - (Supposedly) used in forums to hide spoilers
   - Who thinks the Caesar cipher is secure?
     - The keyspace is too small, so brute force attacks are almost trivial
     - Notice that each letter is mapped to exactly one other letter (and always that letter)
-     - i.e., "BANANA" with a key of 11 is "MLYLYL"
-       - Notice "A -> L" every time
-     - So there's another inherrent weakness in the Caesar cipher
-       - it reflects the natural frequency of letters in a language
-       - "e" is the most common letter in the English Alphabet
-  - Notice that if the key is "13", we don't actually need a decryption function
-    - Has a special name: Rot13
-    - "f(x,13)=x+13"
-    - "f(x+13, 13) = x+26 = x mod 26"
-    - (Supposedly) used in Forums to hide spoilers
+     - i.e., `BANANA` with a key of 11 is `MLYLYL`
+       - Notice `A` -> `L` every time
+     - So there's another inherent weakness in the Caesar cipher
+       - It reflects the natural frequency of letters in a language
+       - [*e* is the most common letter in the English alphabet](http://letterfrequency.org/)
+  - Can we make the Caesar cipher more secure?
+     - We can use the Vigenère cipher, which uses words as keys. For instance, encrypting `CRYPTOGRAPHY` with the key of `KEY` gives us...
+     
+| C | R | Y | P | T | O | G | R | A | P | H | Y |
+|---|---|---|---|---|---|---|---|---|---|---|---|
+| K | E | Y | K | E | Y | K | E | Y | K | E | Y |
+| **M** | **V** | **W** | **Z** | **X** | **M** | **Q** | **V** | **Y** | **Z** | **L** | **W** |
+
+- It's worth noting that [Vigenère is pretty easy to crack too](http://www.dcode.fr/vigenere-cipher), given a sufficiently large cipher.
 
 #### Notes on the Enigma Machine:
  - http://wiki.franklinheath.co.uk/index.php/Enigma/Paper_Enigma

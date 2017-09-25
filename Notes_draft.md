@@ -1,4 +1,4 @@
-### Crypto Meeting
+### Cryptography Workshop
 
 #### ACM Meeting notes - September 28, 2017
 #### Performed in collaboration with the Pi Mu Epsilon (math club) local chapter
@@ -15,9 +15,9 @@
  |d|e|f|g|h|i|...|x|y|z|a|b|c|
  
   ##### Let's define some terminology:
-  - We don't want to actually deal with letters, words, etc. Modern cryptography deals almost soley with numbers. We use an **encoding** function to transform letters (or words) into numbers, and vice versa.
+  - We don't want to actually deal with letters, words, etc. Modern cryptography deals almost solely with numbers. We use an **encoding** function to transform letters (or words) into numbers, and vice versa.
   - We also need a **secret key** (sometimes just **key**) to perform our encryption and decryption.
-  - The **keyspace** is the set of possible keys. Usually we want the **keyspace** to be prohibitively large.
+  - The **keyspace** is the set of possible keys. Usually we want the **keyspace** to be prohibitively large -- this way, using brute force to find the key is no longer feasible.
   
  ##### So what does this mean with reference to the Caesar Cipher?
   - What should be our encoding scheme?
@@ -70,9 +70,7 @@
 - It's worth noting that [Vigenère is pretty easy to crack too](http://www.dcode.fr/vigenere-cipher), given a sufficiently large cipher.
 
 #### Notes on the Enigma Machine:
- - http://wiki.franklinheath.co.uk/index.php/Enigma/Paper_Enigma
-   - Paper printout of the Enigma machine
- - Need Picture
+ - [Paper printout of the Enigma machine](http://wiki.franklinheath.co.uk/index.php/Enigma/Paper_Enigma)
 
 #### Enigma Machine
  - Invented at the end of WWI
@@ -80,7 +78,8 @@
  - Multiple Variations
  
    #### So what is the Enigma Machine?
-   PICTURE HERE 
+
+![Enigma Machine](https://upload.wikimedia.org/wikipedia/commons/b/bd/Enigma_%28crittografia%29_-_Museo_scienza_e_tecnologia_Milano.jpg)
    
    #### Simulation
    

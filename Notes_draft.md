@@ -91,7 +91,7 @@
  - Poor security or thought in how the Enigma was used
   - **Cribs** are common phrases that you might see expect to see in the plaintext
      - For example, you might expect the first word of a letter to be "Hello"
-     - Or, every message ended in "Heill Hitler"
+     - Or, every message ended in "Heil Hitler"
   - Common rotor settings such as "AAA" or "BBB"
   - Retransmitting a message (or a nearly identital message) using a different cipher (or different key)
     

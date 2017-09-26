@@ -84,6 +84,7 @@
    #### Facts
    - Has a total of 150,738,274,937,250 (151 trillion) different ways pairs of letters could be interchanged
    - The Polish and British cryptographers and mathematicians spearheaded the attack on the Enigma Machine
+   - (Extremely) short video showing an Enigma Machine in action: [Working Enigma]{https://www.youtube.com/watch?v=5SBNc-lpJXU}
    
 #### Breaking the Enigma
  - Notice that a letter can't encode to itself
@@ -160,15 +161,15 @@
   |Feel secure in your secrecy ;)|(g<sup>b</sup>)<sup>a</sup> mod p |???| (g<sup>a</sup>)<sup>b</sup> mod p|
   
   ##### Going back to our example
-  p = 67, g = 7 (NUMBERS ARE CURRENTLY WRONG, NEED TO WORK ON THAT)
+  p = 67, g = 7
   
   ||Alice|Eve|Bob|
   |---|:---:|:---:|:---:|
   |Decide on g,p|g=7,p=67|g=7,p=67|g=7,p=67|
-  |Secretly choose a number (c)|a=28|   | b=42 |
-  |Calculate g<sup>c</sup> mod p|7<sup>28</sup> mod 67 = 47| | 7<sup>42</sup> mod 67 = 24|
-  |Send g<sup>c</sup> to the other party|g<sup>b</sup> mod p = 24| g<sup>a</sup> mod p = 47, g<sup>b</sup> mod p = 24| g<sup>a</sup> mod p = 47|
-  |Calculate g<sup>ab</sup> mod p|(g<sup>b</sup>)<sup>a</sup> mod p = (47)<sup>28</sup> mod 67 = 36 |???| (g<sup>a</sup>)<sup>b</sup> mod p = (24)^42 mod 67 = 62|
+  |Secretly choose a number (c)|a=28|   | b=15 |
+  |Calculate g<sup>c</sup> mod p|7<sup>28</sup> mod 67 = 47| | 7<sup>15</sup> mod 67 = 5|
+  |Send g<sup>c</sup> to the other party|g<sup>b</sup> mod p = 5| g<sup>a</sup> mod p = 47, g<sup>b</sup> mod p = 5| g<sup>a</sup> mod p = 47|
+  |Calculate g<sup>ab</sup> mod p|(g<sup>b</sup>)<sup>a</sup> mod p = (47)<sup>28</sup> mod 67 = 14 |???| (g<sup>a</sup>)<sup>b</sup> mod p = (47)^5 mod 67 = 14|
   
   Notice that if Eve finds either "a" or "b", she knows the secret key.
    

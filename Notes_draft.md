@@ -27,7 +27,7 @@
   #####
    - Encoding scheme: a↦0, b↦1 seem reasonable
    - Encryption function: f(x,k)=x+k (mod 26)
-   - Decryption function: f^-1(x,k)=x-k (mod 26)
+   - Decryption function: f<sup>-1</sup>(x,k)=x-k (mod 26)
    - Keyspace: technically infinite, but really only 26 possibilities
   
   ##### Modular Arithmetic (a digression)

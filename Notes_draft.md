@@ -81,10 +81,19 @@
 
 ![Enigma Machine](https://upload.wikimedia.org/wikipedia/commons/b/bd/Enigma_%28crittografia%29_-_Museo_scienza_e_tecnologia_Milano.jpg)
    
+    - Courtesy of Wikipedia
+    
+    
    #### Facts
    - Has a total of 150,738,274,937,250 (151 trillion) different ways pairs of letters could be interchanged
    - The Polish and British cryptographers and mathematicians spearheaded the attack on the Enigma Machine
    - (Extremely) short video showing an Enigma Machine in action: [Working Enigma]{https://www.youtube.com/watch?v=5SBNc-lpJXU}
+   
+   #### How it works
+   ![](https://en.wikipedia.org/wiki/Enigma_machine#/media/File:Enigma-action.svg)
+    - Courtesy of Wikipedia
+    - Paper enigma: http://dave-reed.com/DIYenigma/
+    
    
 #### Breaking the Enigma
  - Notice that a letter can't encode to itself
@@ -172,6 +181,9 @@
   |Calculate g<sup>ab</sup> mod p|(g<sup>b</sup>)<sup>a</sup> mod p = (47)<sup>28</sup> mod 67 = 14 |???| (g<sup>a</sup>)<sup>b</sup> mod p = (47)^5 mod 67 = 14|
   
   Notice that if Eve finds either "a" or "b", she knows the secret key.
+   
+   #### Another example?
+   p = 101, g = 2
    
 #### Discrete Log Problem
  - The problem of finding "a" from "g<sup>a</sup> mod p" is known as the **Discrete Log Problem**. As far as we know, this is a hard problem.

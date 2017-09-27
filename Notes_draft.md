@@ -4,8 +4,10 @@
 #### Performed in collaboration with the Pi Mu Epsilon (math club) local chapter
 
 ***
-#### Introduction
+### Introduction
    
+### Caesar Cipher and Vigenère Cipher
+
 #### Caesar Cipher
  - One of the earliest and simplest ciphers
  - Used by (you guessed it) Caesar himself, who is claimed to have used a shift of 3
@@ -31,7 +33,6 @@
    - Keyspace: technically infinite, but really only 26 possibilities
   
   ##### Modular Arithmetic (a digression)
-   - Also known as "clock" arithmetic
    - In a mod *N* arithmetic system, one counts \[0, *N*). Upon reaching *N*, the system wraps around and begins counting at 0 again.
       - Clocks are modular arithmetic systems, hence modular arithmetic is sometimes called *clock arithmetic*.
          - The 24-hour clock counts 0..23, and then starts back over at 0 again.
@@ -73,10 +74,7 @@
 
 - It's worth noting that [Vigenère is pretty easy to crack too](http://www.dcode.fr/vigenere-cipher), given a sufficiently large cipher.
 
-#### Notes on the Enigma Machine:
- - [Paper printout of the Enigma machine](http://wiki.franklinheath.co.uk/index.php/Enigma/Paper_Enigma)
-
-#### Enigma Machine
+### Enigma Machine
  - Invented at the end of WWI
  - But mainly you see it talked about in context with WWII
  - Multiple Variations
@@ -89,6 +87,13 @@
    - Has a total of 150,738,274,937,250 (151 trillion) different ways pairs of letters could be interchanged
    - The Polish and British cryptographers and mathematicians spearheaded the attack on the Enigma Machine
    - (Extremely) short video showing an Enigma Machine in action: [Working Enigma]{https://www.youtube.com/watch?v=5SBNc-lpJXU}
+   
+   #### How it works
+   
+![](https://upload.wikimedia.org/wikipedia/commons/thumb/6/6c/Enigma-action.svg/1000px-Enigma-action.svg.png)
+
+   - Courtesy of Wikipedia
+   - Paper enigma: http://dave-reed.com/DIYenigma/
    
 #### Breaking the Enigma
  - Notice that a letter can't encode to itself
@@ -111,74 +116,74 @@
  - Notice that both the Caesar Cipher and the Enigma machine rely on an assumption
  - **They both assume that the parties have communicated some secret**
 
- #### Diffie-Hellman Key Exchange
+### Diffie-Hellman Key Exchange
   - First published by Whitfield Diffie and Martin Hellman in 1976
     - But actually conveived before then by researchers at GCHQ, Great Britain's secret intelligence agency
   - Allows parties to decide on a secret key even in the presence of evesdroppers.
   - Not actually an encryption scheme, but a key generation scheme to be used in conjunction with some other form of encryption.
  #### The Math:
   - Let's go back to the idea of modular arithmetic
-  - Choose a prime "p" and a number "g"
-  It turns out that we can computer "g<sup>a</sup> mod p" quickly even for very large "a"
+  - Choose a prime *p* and a number *g*
+  It turns out that we can compute *g*<sup>*a*</sup> mod *p* quickly even for very large *a*'s.
   
- #### Algorithm (example):
-  Let p=67, g=7, a = 28 = 11100 (base 2). We can "repeatedly square" g to get
-   - g<sup>2</sup> = (g)(g)     = 7 * 7 = 49 ≡ 49 mod 67
-   - g<sup>4</sup> = (g<sup>2</sup>)(g<sup>2</sup>) = 49 * 49 = 2401 ≡ 56 mod 67
-   - g<sup>8</sup> = (g<sup>4</sup>)(g<sup>4</sup>) = 56 * 56 = 3136 ≡ 54 mod 67
-   - g<sup>16</sup> = (g<sup>8</sup>)(g<sup>8</sup>) = 54 * 54 = 2916 ≡ 35 mod 67
+ #### Efficiently Calculating *g*<sup>a</sup> mod *p*
+  Let *p* = 67, *g* = 7, *a* = 28. We need to find *g*<sup>28</sup> mod 67. Because *g*<sup>28</sup> = *g*<sup>16</sup> · *g*<sup>8</sup> · *g*<sup>4</sup>, we can find what *g*<sup>28</sup> is congruent to in mod 67 using repeated squaring:
+   - *g*<sup>2</sup> = *g* · *g* = 7 · 7 = 49 ≡ 49 mod 67
+   - *g*<sup>4</sup> = *g*<sup>2</sup> · *g*<sup>2</sup> = 49 · 49 = 2401 ≡ 56 mod 67
+   - *g*<sup>8</sup> = *g*<sup>4</sup> · *g*<sup>4</sup> = 56 · 56 = 3136 ≡ 54 mod 67
+   - *g*<sup>16</sup> = *g*<sup>8</sup> · *g*<sup>8</sup> = 54 · 54 = 2916 ≡ 35 mod 67
    
   Since 28 = 16 + 8 + 4, we see
-   - g<sup>28</sup> = (g<sup>16</sup>)(g<sup>8</sup>)(g<sup>4</sup>) = 35 * 54 * 56 = 105840 ≡ 47 mod 67
+   - *g*<sup>28</sup> = *g*<sup>16</sup> · *g*<sup>8</sup> · *g*<sup>4</sup> = 35 · 54 · 56 = 105840 ≡ 47 mod 67
   
-  Notice that this algorithm only takes log<sub>2</sub>(n) squarings. So evey very large "a" will perform relatively quickly
+  Notice that this algorithm only takes log<sub>2</sub>(*n*) squarings. So even very large *a*'s will perform relatively quickly.
   
   #### Back to Diffie-Hellman
   So what do we do with this information?
    - Let us suppose we have 3 parties.
-     - Alice, who wants to talk to Bob without being overheard
-     - Bob, who wants to talk to Alice without being overheard
-     - Eve, who wants to eavesdrop on Alice and Bob's conversation
+     - **Alice**, who wants to talk to Bob without being overheard
+     - **Bob**, who wants to talk to Alice without being overheard
+     - **Eve**, who wants to eavesdrop on Alice and Bob's conversation
    - Furthermore, Alice and Bob have no prior information about each other
      - That is, they haven't decided on a secret key yet
   How are Alice and Bob going to decide on a secret key?
   
-  Step 1:
-   - Alice and Bob (openly) communicate a prime "p" and a number "g"
+ **Step 1:**
+   - Alice and Bob (openly) communicate a prime *p* and a number *g*
    
-  Step 2:
-   - Alice chooses a secret number "a", calculates "g<sup>a</sup> mod p", and sends that information to Bob
-   - Bob chooses a secret number "b", calculates "g<sup>b</sup> mod p", and sends that information to Alice
+ **Step 2:**
+   - Alice chooses a secret number *a*, calculates *g*<sup>*a*</sup> mod *p*, and sends that information to Bob
+   - Bob chooses a secret number *b*, calculates *g*<sup>*b*</sup> mod *p*, and sends that information to Alice
    
-  Step 3:
-   - Alice calculates (g<sup>b</sup> mod p)<sup>a</sup> mod p = g<sup>ab</sup> mod p
-   - Bob calculates (g<sup>a</sup> mod p)<sup>b</sup> mod p = g<sup>ab</sup> mod p
+ **Step 3:**
+   - Alice calculates (*g*<sup>*b*</sup> mod *p*)<sup>*a*</sup> mod *p* = *g*<sup>*ab*</sup> mod *p*
+   - Bob calculates (*g*<sup>*a*</sup> mod *p*)<sup>*b*</sup> mod *p* = *g*<sup>*ab*</sup> mod *p*
    
-  The secret key is g<sup>ab</sup> mod p
+  The secret key is *g*<sup>*ab*</sup> mod *p*
   
   ||Alice|Eve|Bob|
   |---|:---:|:---:|:---:|
-  |Decide on g,p|g,p|g,p|g,p|
-  |Secretly choose a number (c)|a  |   | b |
-  |Calculate g<sup>c</sup> mod p|g<sup>a</sup> mod p| | g<sup>b</sup> mod p|
-  |Send g<sup>c</sup> to the other party|g<sup>b</sup> mod p| g<sup>a</sup> mod p, g<sup>b</sup> mod p| g<sup>a</sup> mod p|
-  |Feel secure in your secrecy ;)|(g<sup>b</sup>)<sup>a</sup> mod p |???| (g<sup>a</sup>)<sup>b</sup> mod p|
+  |Decide on *g*, *p*|*g*, *p*| *g*, *p* | *g*, *p*|
+  |Secretly choose a number (*c*)| *a* |   | *b* |
+  |Calculate *g*<sup>*c*</sup> mod *p*|*g*<sup>*a*</sup> mod *p*| | *g*<sup>*b*</sup> mod *p*|
+  |Send *g*<sup>*c*</sup> to the other party|*g*<sup>*b*</sup> mod *p*| *g*<sup>*a*</sup> mod *p*, *g*<sup>*b*</sup> mod *p*| *g*<sup>*a*</sup> mod *p*|
+  |Feel secure in your secrecy ;)|(*g*<sup>*b*</sup>)<sup>*a*</sup> mod *p* |???| (*g*<sup>*a*</sup>)<sup>*b*</sup> mod *p*|
   
   ##### Going back to our example
-  p = 67, g = 7
+  *p* = 67, *g* = 7
   
   ||Alice|Eve|Bob|
   |---|:---:|:---:|:---:|
-  |Decide on g,p|g=7,p=67|g=7,p=67|g=7,p=67|
-  |Secretly choose a number (c)|a=28|   | b=15 |
-  |Calculate g<sup>c</sup> mod p|7<sup>28</sup> mod 67 = 47| | 7<sup>15</sup> mod 67 = 5|
-  |Send g<sup>c</sup> to the other party|g<sup>b</sup> mod p = 5| g<sup>a</sup> mod p = 47, g<sup>b</sup> mod p = 5| g<sup>a</sup> mod p = 47|
-  |Calculate g<sup>ab</sup> mod p|(g<sup>b</sup>)<sup>a</sup> mod p = (47)<sup>28</sup> mod 67 = 14 |???| (g<sup>a</sup>)<sup>b</sup> mod p = (47)^5 mod 67 = 14|
+  |Decide on *g*, *p* | *g* = 7, *p* = 67| *g* = 7, *p* = 67| *g* = 7, *p* = 67|
+  |Secretly choose a number (*c*) | *a* = 28|   | *b* = 15 |
+  |Calculate *g*<sup>*c*</sup> mod *p*| 7<sup>28</sup> mod 67 = 47| | 7<sup>15</sup> mod 67 = 5|
+  |Send *g*<sup>*c*</sup> to the other party| *g*<sup>*b*</sup> mod *p* = 5| *g*<sup>*a*</sup> mod *p* = 47, *g*<sup>*b*</sup> mod *p* = 5| *g*<sup>*a*</sup> mod *p* = 47|
+  |Calculate *g*<sup>*ab*</sup> mod *p*|(*g*<sup>*b*</sup>)<sup>*a*</sup> mod *p* = 47<sup>28</sup> mod 67 = 14 |???| (*g*<sup>*a*</sup>)<sup>*b*</sup> mod *p* = 47<sup>5</sup> mod 67 = 14|
   
-  Notice that if Eve finds either "a" or "b", she knows the secret key.
+  Notice that if Eve finds either *a* or *b*, she knows the secret key.
    
 #### Discrete Log Problem
- - The problem of finding "a" from "g<sup>a</sup> mod p" is known as the **Discrete Log Problem**. As far as we know, this is a hard problem.
+ - The problem of finding *a* from *g*<sup>*a*</sup> mod *p* is known as the **Discrete Log Problem**. As far as we know, this is a hard problem.
  
 #### Post-Quantum Cryptography
  - But, the Discrete Log problem isn't hard on a Quantum Computer!

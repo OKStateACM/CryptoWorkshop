@@ -32,13 +32,17 @@
   
   ##### Modular Arithmetic (a digression)
    - Also known as "clock" arithmetic
-   - Intuitively, "x mod n" is the remainder of "x ÷ n" (x divided by n).
-   - Technically, "x = y mod n" if there exists an integer "k" with "x + kn =  y"
-  ##### Example
-   -  3 mod 5 = 3 (k = 0)
-   - 10 mod 5 = 0 (k = -2)
-   - 25 mod 7 = 4 (k = -4)
-   - -1 mod 7 = 6 (k = 1)
+   - In a mod *N* arithmetic system, one counts \[0, *N*). Upon reaching *N*, the system wraps around and begins counting at 0 again.
+      - Clocks are modular arithmetic systems, hence modular arithmetic is sometimes called *clock arithmetic*.
+         - The 24-hour clock counts 0..23, and then starts back over at 0 again.
+   - Notation:
+      - **Computer Science:** *x* mod *N* is a function that spits out the remainder of *x*/*N*
+      - **Mathematics *(and this workshop)*:** *x* ≡ *a* mod *N* ― *x* is **congruent** to *a* mod *N*, that is to say that the remainder of *x*/*N* is *a*, so *x* maps to *a* in the mod *N* system.
+  ##### Examples
+   - 3 ≡ 3 mod 5
+   - 10 ≡ 0 mod 5
+   - 25 ≡ 4 mod 7
+   - -1 ≡ 6 mod 7
   
   ##### Back to the Caesar Cipher
   - Let's work through some examples:
@@ -48,8 +52,8 @@
   ##### Reflections on Caesar Cipher
   - Notice that if the key is 13, we don't actually need a decryption function -- it would be the same as the encryption function
     - Has a special name: [ROT13](https://en.wikipedia.org/wiki/ROT13)
-    - *f(x, 13)* = *x* + 13
-    - *f(x+13, 13)* = *x* + 26 = *x* mod 26
+    - *f(x, 13)* = *x* + 13 ≡ (*x* + 13) mod 26
+    - *f(x+13, 13)* = *x* + 26 ≡ *x* mod 26
     - (Supposedly) used in forums to hide spoilers
   - Who thinks the Caesar cipher is secure?
     - The keyspace is too small, so brute force attacks are almost trivial
@@ -81,19 +85,10 @@
 
 ![Enigma Machine](https://upload.wikimedia.org/wikipedia/commons/b/bd/Enigma_%28crittografia%29_-_Museo_scienza_e_tecnologia_Milano.jpg)
    
-    - Courtesy of Wikipedia
-    
-    
    #### Facts
    - Has a total of 150,738,274,937,250 (151 trillion) different ways pairs of letters could be interchanged
    - The Polish and British cryptographers and mathematicians spearheaded the attack on the Enigma Machine
    - (Extremely) short video showing an Enigma Machine in action: [Working Enigma]{https://www.youtube.com/watch?v=5SBNc-lpJXU}
-   
-   #### How it works
-   ![](https://en.wikipedia.org/wiki/Enigma_machine#/media/File:Enigma-action.svg)
-    - Courtesy of Wikipedia
-    - Paper enigma: http://dave-reed.com/DIYenigma/
-    
    
 #### Breaking the Enigma
  - Notice that a letter can't encode to itself
@@ -181,9 +176,6 @@
   |Calculate g<sup>ab</sup> mod p|(g<sup>b</sup>)<sup>a</sup> mod p = (47)<sup>28</sup> mod 67 = 14 |???| (g<sup>a</sup>)<sup>b</sup> mod p = (47)^5 mod 67 = 14|
   
   Notice that if Eve finds either "a" or "b", she knows the secret key.
-   
-   #### Another example?
-   p = 101, g = 2
    
 #### Discrete Log Problem
  - The problem of finding "a" from "g<sup>a</sup> mod p" is known as the **Discrete Log Problem**. As far as we know, this is a hard problem.

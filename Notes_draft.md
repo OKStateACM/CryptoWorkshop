@@ -212,6 +212,8 @@
  - It's a common misconception that quantum computers solve problems by checking every possibility in parallel. However, this is no different than multiprogramming techniques like wiring together a bunch of classical computers...
  
  - Quantum computing algorithms like *Shor's algorithm* take advantage of quantum states' wavelike behavior and constructive/destructive interference to amplify solutions that are probabilitistically more correct.
+ 
+   - In technical, computational mumbo-jumbo, this means problems that have NP (**n**on**p**olynomial) runtime in classical computing now have P (**p**olynomial) runtime in quantum computing. This is called [**B**ounded-Error **Q**uantum **P**olynomial runtime](https://en.wikipedia.org/wiki/BQP).
 
 #### [We don't have nearly enough time to go into these algorithms, but here's an incredibly helpful playlist to learn more.](https://www.youtube.com/watch?v=IrbJYsep45E&list=PLa6IE8XPP_gnot4uwqn7BeRJoZcaEsG1D)
 
@@ -224,6 +226,8 @@
    - Like Diffie-Hellman, QKD isn't itself an encryption scheme, but rather a secure means of key exchange to be used in conjunction with other encryption schemes like AES.
    
    - Thanks to the Heisenberg uncertainty principle and the no-cloning theorem, it's impossible for an eavesdropper to observe the key exchange without modifying the quantum information. If an eavesdropper tries, the information is modified, and the key exchange therefore fails, alerting the two communicating parties to the eavesdropper's presence.
+   
+   - There also seem to be problems like [lattice-based encryption](https://en.wikipedia.org/wiki/Lattice-based_cryptography) that *seem* to resist even quantum solutions. [See §1.3](https://www.cims.nyu.edu/~regev/papers/pqc.pdf)
 
 ***
 

@@ -227,7 +227,7 @@
    
    - Thanks to the Heisenberg uncertainty principle and the no-cloning theorem, it's impossible for an eavesdropper to observe the key exchange without modifying the quantum information. If an eavesdropper tries, the information is modified, and the key exchange therefore fails, alerting the two communicating parties to the eavesdropper's presence.
    
-   - There also seem to be problems like [lattice-based encryption](https://en.wikipedia.org/wiki/Lattice-based_cryptography) that *seem* to resist even quantum solutions. [See §1.3](https://www.cims.nyu.edu/~regev/papers/pqc.pdf)
+ - There also seem to be problems like [lattice-based encryption](https://en.wikipedia.org/wiki/Lattice-based_cryptography) that *seem* to resist even quantum solutions. [See §1.3](https://www.cims.nyu.edu/~regev/papers/pqc.pdf)
 
 ***
 

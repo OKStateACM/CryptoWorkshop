@@ -1,10 +1,9 @@
 ### Cryptography Workshop
 
-#### ACM Meeting notes - September 28, 2017
+#### ACM Meeting Notes - September 28, 2017
 #### Performed in collaboration with the Pi Mu Epsilon (math club) local chapter
 
 ***
-### Introduction
    
 ### Caesar Cipher and Vigenère Cipher
 
@@ -74,6 +73,8 @@
 
 - It's worth noting that [Vigenère is pretty easy to crack too](http://www.dcode.fr/vigenere-cipher), given a sufficiently large cipher.
 
+***
+
 ### Enigma Machine
  - Invented at the end of WWI
  - But mainly you see it talked about in context with WWII
@@ -106,15 +107,17 @@
   - Retransmitting a message (or a nearly identital message) using a different cipher (or different key)
     
     
-#### Real-world crypto (courtesy of xkcd)
+#### Real-World Crypto [(courtesy of xkcd)](https://xkcd.com/538/)
 
-  ![](https://imgs.xkcd.com/comics/security.png)
+  ![A CRYPTO NERD'S IMAGINATION: "His laptop's encrypted. Let's build a million-dollar cluster to crack it." "No good! It's 4096-bit RSA!" "Blast! Our evil plan is foiled!" | WHAT WOULD ACTUALLY HAPPEN: "His laptop's encrypted. Drug him and hit him with this $5 wrench until he tells us the password." "Got it."](https://imgs.xkcd.com/comics/security.png)
     
     
 
 #### Problems with Caesar Cipher and the Enigma Machine
  - Notice that both the Caesar Cipher and the Enigma machine rely on an assumption
  - **They both assume that the parties have communicated some secret**
+
+***
 
 ### Diffie-Hellman Key Exchange
   - First published by Whitfield Diffie and Martin Hellman in 1976
@@ -184,6 +187,8 @@
    
 #### Discrete Log Problem
  - The problem of finding *a* from *g*<sup>*a*</sup> mod *p* is known as the **Discrete Log Problem**. As far as we know, this is a hard problem.
+ 
+***
  
 ### Post-Quantum Cryptography
 

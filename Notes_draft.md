@@ -186,6 +186,14 @@
  - The problem of finding *a* from *g*<sup>*a*</sup> mod *p* is known as the **Discrete Log Problem**. As far as we know, this is a hard problem.
  
 #### Post-Quantum Cryptography
+ - While we've chosen to focus on Diffie-Hellman for our discussions on Public Key Cryptography, there are other methods by which PKC can be accomplished. One of the most famous and widely used encryption schemes, [RSA](https://en.wikipedia.org/wiki/RSA_(cryptosystem)), relies on *prime factorization* being a hard problem to solve efficiently.
+ 
+   - Our best solutions at the time are the [General Number Field Sieve](https://en.wikipedia.org/wiki/General_number_field_sieve) (faster for integers greater than 10<sup>100</sup>) and the [Quadratic Sieve](https://en.wikipedia.org/wiki/Quadratic_sieve) (faster for integers less than 10<sup>100</sup>)
+   
+      - It's worth keeping in mind that RSA can use up to 4,096-bit keys, resulting in keys greater than 10<sup>1000</sup>
+   
+ - Even with optimizations such as the General Number Field Sieve, with our *current, classical* computing power, it could take the lifetime of the universe to crack problems of prime factorization or the Discrete Log Problem
+
  - But, the Discrete Log problem isn't hard on a Quantum Computer!
    - Breaks using "Shor's Algorithm"
 

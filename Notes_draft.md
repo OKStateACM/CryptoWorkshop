@@ -185,7 +185,9 @@
 #### Discrete Log Problem
  - The problem of finding *a* from *g*<sup>*a*</sup> mod *p* is known as the **Discrete Log Problem**. As far as we know, this is a hard problem.
  
-#### Post-Quantum Cryptography
+### Post-Quantum Cryptography
+
+#### Just What Does It Mean To Be A Hard Problem?
  - While we've chosen to focus on Diffie-Hellman for our discussions on Public Key Cryptography, there are other methods by which PKC can be accomplished. One of the most famous and widely used encryption schemes, [RSA](https://en.wikipedia.org/wiki/RSA_(cryptosystem)), relies on *prime factorization* being a hard problem to solve efficiently.
  
    - Our best solutions at the time are the [General Number Field Sieve](https://en.wikipedia.org/wiki/General_number_field_sieve) (faster for integers greater than 10<sup>100</sup>) and the [Quadratic Sieve](https://en.wikipedia.org/wiki/Quadratic_sieve) (faster for integers less than 10<sup>100</sup>)
@@ -194,8 +196,19 @@
    
  - Even with optimizations such as the General Number Field Sieve, with our *current, classical* computing power, it could take the lifetime of the universe to crack problems of prime factorization or the Discrete Log Problem
 
- - But, the Discrete Log problem isn't hard on a Quantum Computer!
-   - Breaks using "Shor's Algorithm"
+#### What Quantum Computing Is And How It Breaks Everything
+
+ - **Quantum computing** gives us access to new algorithms that drastically reduce the time needed to solve problems of prime factorization or discrete logs by exploiting features of quantum mechanics such as *superposition* and *entanglement*.
+ 
+   - Crucial to understanding quantum computing is the understanding that quantum states can be added together like waves to get new, equally valid quantum states.
+ 
+ ![Bloch sphere](http://s.hswstatic.com/gif/quantum-computer-2.jpg)
+ 
+ - It's a common misconception that quantum computers solve problems by checking every possibility in parallel. However, this is no different than multiprogramming techniques like wiring together a bunch of classical computers...
+ 
+ - Quantum computing algorithms like *Shor's algorithm* take advantage of quantum states' wavelike behavior and constructive/destructive interference to amplify solutions that are probabilitistically more correct.
+
+#### [We don't have nearly enough time to go into these algorithms, but here's an incredibly helpful playlist to learn more.](https://www.youtube.com/watch?v=IrbJYsep45E&list=PLa6IE8XPP_gnot4uwqn7BeRJoZcaEsG1D)
 
 ### Acknowledgements
 - Thanks to Dr. Fili of the OSU Mathematics department for providing input and references for content

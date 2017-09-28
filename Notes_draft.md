@@ -215,5 +215,17 @@
 
 #### [We don't have nearly enough time to go into these algorithms, but here's an incredibly helpful playlist to learn more.](https://www.youtube.com/watch?v=IrbJYsep45E&list=PLa6IE8XPP_gnot4uwqn7BeRJoZcaEsG1D)
 
+#### All Hope Is Not Lost...
+
+- Just as quantum computing destroys modern cryptography, it also provides solutions...
+  
+- ... The most prominent being [Quantum Key Distribution](https://en.wikipedia.org/wiki/Quantum_key_distribution).
+
+   - Like Diffie-Hellman, QKD isn't itself an encryption scheme, but rather a secure means of key exchange to be used in conjunction with other encryption schemes like AES.
+   
+   - Thanks to the Heisenberg uncertainty principle and the no-cloning theorem, it's impossible for an eavesdropper to observe the key exchange without modifying the quantum information. If an eavesdropper tries, the information is modified, and the key exchange therefore fails, alerting the two communicating parties to the eavesdropper's presence.
+
+***
+
 ### Acknowledgements
 - Thanks to Dr. Fili of the OSU Mathematics department for providing input and references for content
